@@ -5,7 +5,7 @@ backported from Leatrix Maps for WOTLK Classic
 
 
 
-As a disclaimer this addon was about 90% vibecoded, but so far the result is better than i expected and I wanted to share it. Feel free to report any issues.
+As a disclaimer this addon was about 90% vibecoded, but so far the result is better than expected and I wanted to share it. Feel free to report any issues.
 
 ---
 <img width="1919" height="1079" alt="image" src="https://github.com/user-attachments/assets/820f87a4-acbc-47be-b635-b696ed80e0ea" />
