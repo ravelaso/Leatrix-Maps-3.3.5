@@ -3,6 +3,10 @@
 A feature-rich world map enhancement addon for World of Warcraft 3.3.5a,
 backported from Leatrix Maps for WOTLK Classic
 
+
+
+As a disclaimer this addon was about 90% vibecoded, but so far the result is better than i expected and I wanted to share it. Feel free to report any issues.
+
 ---
 <img width="1919" height="1079" alt="image" src="https://github.com/user-attachments/assets/820f87a4-acbc-47be-b635-b696ed80e0ea" />
 
@@ -62,4 +66,5 @@ backported from Leatrix Maps for WOTLK Classic
 ## Credits
 
 - **Leatrix** — original addon author
-- Zoom adapted from [Magnify-WotLK](https://github.com/rissole/Magnify-WotLK) 
+- Zoom adapted from [Magnify-WotLK](https://github.com/rissole/Magnify-WotLK)
+- 
