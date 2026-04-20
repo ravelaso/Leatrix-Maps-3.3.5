@@ -936,8 +936,11 @@
 			SetCVar("miniWorldMap", "1")
 		end
 
-		-- Restore saved position every time the map is shown
+		-- Restore saved scale and position every time the map is shown
 		WorldMapFrame:HookScript("OnShow", function()
+			if LeaMapsDB["MapScale"] then
+				WorldMapFrame:SetScale(LeaMapsDB["MapScale"])
+			end
 			WorldMapFrame:ClearAllPoints()
 			WorldMapFrame:SetPoint(LeaMapsLC["MapPosA"], UIParent, LeaMapsLC["MapPosR"], LeaMapsLC["MapPosX"], LeaMapsLC["MapPosY"])
 			if WorldMapTitleButton_OnDragStop then WorldMapTitleButton_OnDragStop() end
@@ -1508,6 +1511,7 @@
 				frame:SetScript("OnUpdate", nil)
 				frame:SetAllPoints(scaleHandle)
 				LeaMapsDB["MapScale"] = WorldMapFrame:GetScale()
+				LeaMapsLC["MapPosA"], void, LeaMapsLC["MapPosR"], LeaMapsLC["MapPosX"], LeaMapsLC["MapPosY"] = WorldMapFrame:GetPoint()
 			end)
 
 			-- Show/hide handle: only in windowed (mini) mode when unlocked
