@@ -2215,13 +2215,13 @@
 		if event == "ADDON_LOADED" and arg1 == "Leatrix_Maps" then
 
 			-- Mechanics
-			LeaMapsLC:LoadVarChk("ShowZoneMenu", "On")
+			LeaMapsLC:LoadVarChk("ShowZoneMenu", "Off")
 			LeaMapsLC:LoadVarChk("UnlockMapFrame", "On")
 			LeaMapsLC:LoadVarAnc("MapPosA", "CENTER")
 			LeaMapsLC:LoadVarAnc("MapPosR", "CENTER")
 			LeaMapsLC:LoadVarNum("MapPosX", 0, -5000, 5000)
 			LeaMapsLC:LoadVarNum("MapPosY", 20, -5000, 5000)
-			LeaMapsLC:LoadVarChk("SetMapOpacity", "Off")
+			LeaMapsLC:LoadVarChk("SetMapOpacity", "On")
 			LeaMapsLC:LoadVarNum("stationaryOpacity", 1, 0.1, 1)
 			LeaMapsLC:LoadVarChk("FadeOnMove", "On")
 			LeaMapsLC:LoadVarNum("movingOpacity", 0.5, 0.1, 1)
