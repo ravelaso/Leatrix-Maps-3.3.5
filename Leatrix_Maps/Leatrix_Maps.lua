@@ -936,14 +936,11 @@
 			SetCVar("miniWorldMap", "1")
 		end
 
-		-- Set position on startup
+		-- Restore saved position every time the map is shown
 		WorldMapFrame:HookScript("OnShow", function()
-			if not LeaMapsLC.MapLoadPositioned then
-				WorldMapFrame:ClearAllPoints()
-				WorldMapFrame:SetPoint(LeaMapsLC["MapPosA"], UIParent, LeaMapsLC["MapPosR"], LeaMapsLC["MapPosX"], LeaMapsLC["MapPosY"])
-				if WorldMapTitleButton_OnDragStop then WorldMapTitleButton_OnDragStop() end
-				LeaMapsLC.MapLoadPositioned = true
-			end
+			WorldMapFrame:ClearAllPoints()
+			WorldMapFrame:SetPoint(LeaMapsLC["MapPosA"], UIParent, LeaMapsLC["MapPosR"], LeaMapsLC["MapPosX"], LeaMapsLC["MapPosY"])
+			if WorldMapTitleButton_OnDragStop then WorldMapTitleButton_OnDragStop() end
 		end)
 
 		-- ElvUI: restore mouse (ElvUI noops EnableMouse) and hide its backdrop
