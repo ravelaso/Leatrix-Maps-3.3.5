@@ -1,4 +1,4 @@
-﻿----------------------------------------------------------------------
+----------------------------------------------------------------------
 -- L00: Leatrix Maps Library
 ----------------------------------------------------------------------
 
@@ -87,19 +87,24 @@ if not CallbackHandler then return end -- No upgrade needed
 local meta = {__index = function(tbl, key) tbl[key] = {} return tbl[key] end}
 
 -- Lua APIs
--- local securecallfunction, error = securecallfunction, error
--- local setmetatable, rawget = setmetatable, rawget
--- local next, select, pairs, type, tostring = next, select, pairs, type, tostring
+local securecallfunction, error = securecallfunction, error
+local setmetatable, rawget = setmetatable, rawget
+local next, select, pairs, type, tostring = next, select, pairs, type, tostring
 
 
--- local function Dispatch(handlers, ...)
--- 	local index, method = next(handlers)
--- 	if not method then return end
--- 	repeat
--- 		securecallfunction(method, ...)
--- 		index, method = next(handlers, index)
--- 	until not method
--- end
+
+local function Dispatch(handlers, ...)
+	local index, method = next(handlers)
+	if not method then return end
+	repeat
+		if securecallfunction then
+			securecallfunction(method, ...)
+		else
+			method(...)  -- WoW 3.3.5 doesn't have securecallfunction, call directly
+		end
+		index, method = next(handlers, index)
+	until not method
+end
 
 --------------------------------------------------------------------------
 -- CallbackHandler:New
@@ -131,7 +136,7 @@ function CallbackHandler.New(_self, target, RegisterName, UnregisterName, Unregi
 		local oldrecurse = registry.recurse
 		registry.recurse = oldrecurse + 1
 
-		-- Dispatch(events[eventname], eventname, ...)
+		Dispatch(events[eventname], eventname, ...)
 
 		registry.recurse = oldrecurse
 
